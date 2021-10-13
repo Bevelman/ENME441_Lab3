@@ -27,9 +27,9 @@ class Joystick:
   def __init__(self,address):
     self.PCF8591 = PCF8591(address)
   def getX(self,xchn):
-    return self.PCF8591.read(self,xchn)
+    return self.PCF8591.read(self.PCF8591,xchn)
   def getY(self,ychn):
-    return self.PCF8591.read(self,ychn)
+    return self.PCF8591.read(self.PCF8591,ychn)
 
 theJoystick=Joystick(0x48)
 while True:
