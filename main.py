@@ -27,11 +27,11 @@ class Joystick:
   def __init__(self,address):
     self.PCF8591 = PCF8591(address)
   def getX(self,xchn):
-    return self.PCF8591.read(self.PCF8591,xchn)
+    return self.PCF8591.read(self,xchn)
   def getY(self,ychn):
-    return self.PCF8591.read(self.PCF8591,ychn)
+    return self.PCF8591.read(self,ychn)
 
 theJoystick=Joystick(0x48)
 while True:
-  print(theJoystick.getX(0x0) +",\t" + theJoystick.getY(0x1))
+  print(theJoystick.getX(0) +",\t" + theJoystick.getY(1))
   time.sleep(0.1)
