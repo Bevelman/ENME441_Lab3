@@ -24,14 +24,16 @@ class PCF8591:
           print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
 class Joystick:
-  def __init__(self,address):
+  def __init__(self,address,xchn,ychn):
     self.PCF8591 = PCF8591(address)
+    self.xchn = xchn
+    self.ychn = ychn
   def getX(self,xchn):
     return self.PCF8591.read(self,xchn)
   def getY(self,ychn):
     return self.PCF8591.read(self,ychn)
 
-theJoystick=Joystick(0x48)
+theJoystick=Joystick(0x48,0x0,0x1)
 while True:
-  print(theJoystick.getX(0) +",\t" + theJoystick.getY(1))
+  print(theJoystick.getX(theJoystick.xchn) +",\t" + theJoystick.getY(theJoystick.ychn))
   time.sleep(0.1)
