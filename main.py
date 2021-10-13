@@ -35,5 +35,5 @@ class Joystick:
 
 theJoystick=Joystick(0x48,0x0,0x1)
 while True:
-  print(theJoystick.getX(theJoystick.xchn)+",\t"+theJoystick.getY(theJoystick.ychn))
+  print(str(theJoystick.getX(theJoystick.xchn))+",\t"+str(theJoystick.getY(theJoystick.ychn)))
   time.sleep(0.1)
